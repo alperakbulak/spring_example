@@ -17,6 +17,11 @@ public class UserController {
     @Qualifier("jpaUserService")
     private UserService userService;
 
+    @RequestMapping(params ="lastName",method = RequestMethod.GET)
+    public User users(@RequestParam(required = false) String lastName) {
+        return userService.findByLastName(lastName);
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public Collection<User> users() {
         return userService.users();

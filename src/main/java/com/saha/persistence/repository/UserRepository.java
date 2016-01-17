@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author Alper
  */
 public interface UserRepository  extends CrudRepository<UserEntity,Long>{
-    
+    UserEntity findByLastName(String lastName);
 }

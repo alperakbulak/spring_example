@@ -35,9 +35,19 @@ public class JpaUserService implements UserService {
 
     @Override
     public User users(Long id) {
+       UserEntity foundedUser = userRepository.findOne(id);
+       int size = foundedUser.getTweets().size();
+        System.out.println("Size : "+size);
         return null;
     }
-
+    @Override
+    public User findByLastName(String lastName){
+        UserEntity userEntity = userRepository.findByLastName(lastName);
+        User  user            = new User();
+        mapper.map(userEntity, user);
+        return user;
+    }
+    
     @Override
     public User save(User user) {
         UserEntity userEntity = new UserEntity();
@@ -59,10 +69,8 @@ public class JpaUserService implements UserService {
     @Override
     public User update(Long id, User user) {
        UserEntity founded = userRepository.findOne(id);
-       founded.setLastName(user.getLastName());
-       founded.setName(user.getName());
-       founded.setUserName(user.getUserName());
-       
+       user.setTcKimlik(founded.getId().toString());
+       mapper.map(user, founded);
        userRepository.save(founded);
        mapper.map(founded, user);
        return user;

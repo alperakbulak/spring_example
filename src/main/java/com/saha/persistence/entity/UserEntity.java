@@ -7,7 +7,8 @@ import java.util.List;
 
 @Entity
 @Table(schema ="personel", name = "users")
-@Data
+@Getter
+@Setter
 public class UserEntity {
 
     @Id
@@ -23,10 +24,10 @@ public class UserEntity {
     @Column
     private String lastName;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private ProfileEntity profile;
 
-    @OneToMany(mappedBy = "userEntity", cascade ={CascadeType.MERGE,CascadeType.REMOVE})
+    @OneToMany(mappedBy = "userEntity", cascade ={CascadeType.MERGE,CascadeType.REMOVE},fetch = FetchType.LAZY)
     private List<TweetEntity> tweets;
 
 }
