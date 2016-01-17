@@ -52,7 +52,8 @@ public class JpaUserService implements UserService {
 
     @Override
     public Boolean delete(Long id) {
-        return null;
+        userRepository.delete(id);
+        return true;
     }
 
     @Override
