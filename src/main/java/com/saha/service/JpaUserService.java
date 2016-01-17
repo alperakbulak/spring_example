@@ -58,6 +58,14 @@ public class JpaUserService implements UserService {
 
     @Override
     public User update(Long id, User user) {
-        return null;
+       UserEntity founded = userRepository.findOne(id);
+       founded.setLastName(user.getLastName());
+       founded.setName(user.getName());
+       founded.setUserName(user.getUserName());
+       
+       userRepository.save(founded);
+       mapper.map(founded, user);
+       return user;
     }
+    
 }
