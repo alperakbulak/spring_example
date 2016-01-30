@@ -27,7 +27,9 @@ public class UserEntity {
     @OneToOne(fetch = FetchType.LAZY)
     private ProfileEntity profile;
 
-    @OneToMany(mappedBy = "userEntity", cascade ={CascadeType.MERGE,CascadeType.REMOVE},fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "userEntity", 
+               cascade  = {CascadeType.MERGE,CascadeType.REMOVE},
+               fetch    = FetchType.LAZY)
     private List<TweetEntity> tweets;
 
 }

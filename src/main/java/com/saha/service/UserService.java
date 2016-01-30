@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
-
 @Service
 public interface UserService {
 
@@ -19,6 +18,6 @@ public interface UserService {
     Boolean delete(Long id);
 
     User update(Long id, User user);
-    
-    User findByLastName(String lastName);
+
+    User findBy(String lastName);
 }

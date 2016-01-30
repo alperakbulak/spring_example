@@ -42,7 +42,7 @@ public class MemoryUserService implements UserService{
     }
 
     @Override
-    public User findByLastName(String lastName) {
-       return null;
+    public User findBy(String lastName) {
+        return null;
     }
 }

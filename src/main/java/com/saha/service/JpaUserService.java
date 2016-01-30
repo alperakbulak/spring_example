@@ -1,6 +1,7 @@
 package com.saha.service;
 
 import com.saha.annotations.ProdProfile;
+import com.saha.annotations.TestProfile;
 import com.saha.model.User;
 import com.saha.persistence.entity.UserEntity;
 import com.saha.persistence.repository.UserRepository;
@@ -34,20 +35,28 @@ public class JpaUserService implements UserService {
     }
 
     @Override
-    public User users(Long id) {
-       UserEntity foundedUser = userRepository.findOne(id);
-       int size = foundedUser.getTweets().size();
-        System.out.println("Size : "+size);
-        return null;
-    }
-    @Override
-    public User findByLastName(String lastName){
-        UserEntity userEntity = userRepository.findByLastName(lastName);
-        User  user            = new User();
-        mapper.map(userEntity, user);
+    public  User findBy(String param) {
+        Collection<UserEntity> userEntities= userRepository.findByLastName(param);
+
+        for (UserEntity userEntity : userEntities) {
+            System.out.println("userEntity = " + userEntity);
+        }
+
+
+        User user= new User();
+
+        mapper.map(null,user);
         return user;
     }
-    
+
+    @Override
+    public User users(Long id) {
+        UserEntity foundedUser = userRepository.findOne(id);
+        User user = new User();
+        mapper.map(foundedUser,user);
+        return user;
+    }
+
     @Override
     public User save(User user) {
         UserEntity userEntity = new UserEntity();
@@ -68,12 +77,15 @@ public class JpaUserService implements UserService {
 
     @Override
     public User update(Long id, User user) {
-       UserEntity founded = userRepository.findOne(id);
-       user.setTcKimlik(founded.getId().toString());
-       mapper.map(user, founded);
-       userRepository.save(founded);
-       mapper.map(founded, user);
-       return user;
+        UserEntity foundedUser = userRepository.findOne(id);
+
+        user.setTcKimlik(foundedUser.getId().toString());
+        mapper.map(user,foundedUser);
+
+        userRepository.save(foundedUser);
+
+        mapper.map(foundedUser,user);
+
+        return user;
     }
-    
 }
