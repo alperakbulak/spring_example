@@ -1,7 +1,6 @@
 package com.saha.service;
 
 import com.saha.annotations.ProdProfile;
-import com.saha.annotations.TestProfile;
 import com.saha.model.User;
 import com.saha.persistence.entity.UserEntity;
 import com.saha.persistence.repository.UserRepository;
@@ -38,9 +37,9 @@ public class JpaUserService implements UserService {
     public  User findBy(String param) {
         Collection<UserEntity> userEntities= userRepository.findByLastName(param);
 
-        for (UserEntity userEntity : userEntities) {
+        userEntities.stream().forEach((userEntity) -> {
             System.out.println("userEntity = " + userEntity);
-        }
+        });
 
 
         User user= new User();
