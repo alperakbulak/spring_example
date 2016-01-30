@@ -12,3 +12,11 @@ spring:
         show-sql: true
 server:
     port: 9999
+my:
+    class:
+        size: 10
+        name: first-alp-class
+        description: My Class name is ${my.class.name}
+        servers:
+            - server1.com
+            - server2.com
