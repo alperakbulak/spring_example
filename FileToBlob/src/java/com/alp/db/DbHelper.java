@@ -22,14 +22,14 @@ public class DbHelper {
         String driverName = "oracle.jdbc.driver.OracleDriver";
         String serverName = "10.10.1.30";
         String portName   = "1521";
-        String sid        = "baski";
+        String sid        = "*****";
         try {
             Class.forName(driverName);
 
            
             String url      = "jdbc:oracle:thin:@" + serverName + ":" + portName + ":" + sid;
-            String userName = "GELIR";
-            String password = "gelir";
+            String userName = "****";
+            String password = "****";
             con = DriverManager.getConnection(url, userName, password);
             System.out.println("Connected");
             return con;
