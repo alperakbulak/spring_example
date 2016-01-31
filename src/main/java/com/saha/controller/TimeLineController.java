@@ -1,7 +1,7 @@
 package com.saha.controller;
 
 import com.saha.annotations.JsonRestController;
-import com.saha.model.Tweet;
+import com.saha.models.model.Tweet;
 import com.saha.service.TweetService;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;

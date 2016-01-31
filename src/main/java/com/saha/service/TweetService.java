@@ -1,7 +1,7 @@
 package com.saha.service;
 
-import com.saha.model.Tweet;
-import com.saha.model.User;
+import com.saha.models.model.Tweet;
+import com.saha.models.model.User;
 import com.saha.persistence.entity.TweetEntity;
 import com.saha.persistence.entity.UserEntity;
 import com.saha.persistence.repository.TweetRepository;

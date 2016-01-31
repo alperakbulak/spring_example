@@ -1,6 +1,6 @@
 package com.saha.service;
 
-import com.saha.model.User;
+import com.saha.models.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

@@ -1,12 +1,9 @@
 package com.saha.persistence.entity;
 
-import java.util.Date;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Table(schema ="personel", name = "users")

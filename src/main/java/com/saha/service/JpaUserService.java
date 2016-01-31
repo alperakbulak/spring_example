@@ -1,7 +1,7 @@
 package com.saha.service;
 
 import com.saha.annotations.ProdProfile;
-import com.saha.model.User;
+import com.saha.models.model.User;
 import com.saha.persistence.entity.UserEntity;
 import com.saha.persistence.repository.UserRepository;
 import org.dozer.DozerBeanMapper;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import org.springframework.cache.annotation.Cacheable;
 
 @Service
 @ProdProfile
@@ -49,6 +50,7 @@ public class JpaUserService implements UserService {
     }
 
     @Override
+    @Cacheable("users")
     public User users(Long id) {
         UserEntity foundedUser = userRepository.findOne(id);
         User user = new User();

@@ -1,7 +1,7 @@
 package com.saha.controller;
 
 import com.saha.annotations.JsonRestController;
-import com.saha.model.User;
+import com.saha.models.model.User;
 import com.saha.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

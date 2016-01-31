@@ -1,8 +1,8 @@
 package com.saha.controller;
 
 import com.saha.annotations.JsonRestController;
-import com.saha.model.Tweet;
-import com.saha.model.User;
+import com.saha.models.model.Tweet;
+import com.saha.models.model.User;
 import com.saha.persistence.entity.TweetEntity;
 import com.saha.service.TweetService;
 import com.saha.service.UserService;
